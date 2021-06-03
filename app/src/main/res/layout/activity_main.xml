@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragContainerView"
+            android:name="com.simplesoftware.gerenciador_de_despesa.BuscarDespesaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#301B8E"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollview">
+
+
+        <ImageView
+            android:id="@+id/icon_resumo"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/lancamentos"
+            android:onClick="irLancamentos"
+            android:src="@drawable/icon_resumo"
+            app:layout_constraintBottom_toTopOf="@id/tv_lancamentos"
+            app:layout_constraintEnd_toStartOf="@id/icon_add"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar"
+            tools:ignore="UsingOnClickInXml" />
+
+        <TextView
+            android:id="@+id/tv_lancamentos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="irLancamentos"
+            android:text="@string/lancamentos"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_adicionar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_resumo"
+            tools:ignore="UsingOnClickInXml" />
+
+
+        <ImageView
+            android:id="@+id/icon_add"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/adicionar"
+            android:onClick="irCadastro"
+            android:src="@drawable/icon_add"
+            app:layout_constraintBottom_toTopOf="@id/tv_adicionar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_resumo"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar"
+            tools:ignore="UsingOnClickInXml" />
+
+        <TextView
+            android:id="@+id/tv_adicionar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="irCadastro"
+            android:text="@string/adicionar"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_lancamentos"
+            app:layout_constraintTop_toBottomOf="@id/icon_add"
+            tools:ignore="UsingOnClickInXml" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    tools:context=".BuscarDespesaFragment">
+
+
+    <SearchView
+        android:id="@+id/et_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:iconifiedByDefault="false"
+        android:searchIcon="@drawable/icon_buscar"
+        android:queryHint="Buscar por data, local ou nome"
+        android:background="@drawable/background_search"
+        app:layout_constraintBottom_toTopOf="@id/tv_lancamentos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_lancamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border2"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/lancamentos"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_buscar" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_despesas"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="8dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:verticalScrollbarPosition="right"
+        app:layout_constraintBottom_toTopOf="@id/tv_dica_editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_lancamentos" />
+
+
+    <TextView
+        android:id="@+id/tv_dica_editar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dica_apagar"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_despesas" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@id/bt_aplicar_busca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dica_editar" />
+
+    <Button
+        android:id="@+id/bt_aplicar_busca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/aplicar_busca"
+        android:drawableLeft="@drawable/icon_arrow_down"
+        android:drawableRight="@drawable/icon_arrow_down"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintBottom_toTopOf="@id/tv_total_lancado_title"/>
+
+
+    <TextView
+        android:id="@+id/tv_total_lancado_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_lancado"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_total_lancado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_aplicar_busca" />
+
+    <TextView
+        android:id="@+id/tv_total_lancado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="@string/double_padrao"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_total_lancamentos_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_lancado_title" />
+
+    <TextView
+        android:id="@+id/tv_total_lancamentos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/quantidade_lancamentos"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_total_lancamentos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_lancado" />
+
+    <TextView
+        android:id="@+id/tv_total_lancamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="@string/int_padrao"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_lancamentos_title" />
+
+    <TextView
+        android:id="@+id/tv_media_por_lancamentos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/media_por_lancamento"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_media_por_lancamentos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_lancamentos" />
+
+    <TextView
+        android:id="@+id/tv_media_por_lancamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="@string/double_padrao"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_media_por_lancamentos_title" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_media_por_lancamentos" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

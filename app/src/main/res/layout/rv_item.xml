@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:padding="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/rv_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/rv_dataFixo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Data: "
+        app:layout_constraintStart_toEndOf="@id/rv_image"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/rv_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="XX/XX/XXXX"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/rv_dataFixo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rv_localFixo"/>
+
+
+    <TextView
+        android:id="@+id/rv_localFixo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Local: "
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/rv_data"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/rv_local"
+/>
+
+    <TextView
+        android:id="@+id/rv_local"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="XXXXXXXXXXXXX"
+        app:layout_constraintStart_toEndOf="@id/rv_localFixo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/rv_nomeFixo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"
+        android:text="Nome: "
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/rv_image"
+        app:layout_constraintTop_toBottomOf="@id/rv_dataFixo"
+
+        />
+
+    <TextView
+        android:id="@+id/rv_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="XXXXXXXXXXXXX"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@id/rv_nomeFixo"
+        app:layout_constraintTop_toBottomOf="@id/rv_dataFixo"
+        app:layout_constraintEnd_toStartOf="@id/rv_precoFixo"/>
+
+    <TextView
+        android:id="@+id/rv_precoFixo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Preço: "
+        android:layout_marginTop="4dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/rv_nome"
+        app:layout_constraintTop_toBottomOf="@id/rv_dataFixo"
+        app:layout_constraintEnd_toStartOf="@id/rv_preco"/>
+
+    <TextView
+        android:id="@+id/rv_preco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:text="XXXXXXXXXXXXX"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@id/rv_precoFixo"
+        app:layout_constraintTop_toBottomOf="@id/rv_dataFixo"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

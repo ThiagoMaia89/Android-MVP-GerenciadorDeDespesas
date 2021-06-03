@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Gerenciador_de_despesa</string>
+    <string name="lancar_despesas">Cadastrar Despesa</string>
+    <string name="lancamentos">Lançamentos</string>
+    <string name="resumo_lancamentos">Resumo de Lançamentos</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="buscar">Buscar</string>
+    <string name="preco">Preço</string>
+    <string name="nome">Nome</string>
+    <string name="local">Local</string>
+    <string name="data">Data</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="total_lancado">Total Lançado para este filtro (R$)</string>
+    <string name="double_padrao">0.00</string>
+    <string name="quantidade_lancamentos">Quantidade de lançamentos neste filtro</string>
+    <string name="media_por_lancamento">Média de gasto por Lançamento neste filtro (R$)</string>
+    <string name="int_padrao">0</string>
+    <string name="dica_apagar">*Aperte e segure para excluir um registro</string>
+    <string name="copiar">Copiar</string>
+    <string name="aplicar_busca">Atualizar valores após exclusão</string>
+</resources>
