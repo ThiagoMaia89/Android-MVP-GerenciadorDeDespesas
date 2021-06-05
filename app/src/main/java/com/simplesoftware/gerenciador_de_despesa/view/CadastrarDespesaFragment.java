@@ -14,11 +14,16 @@ import android.widget.Toast;
 import com.simplesoftware.gerenciador_de_despesa.R;
 import com.simplesoftware.gerenciador_de_despesa.model.entities.Despesa;
 import com.simplesoftware.gerenciador_de_despesa.model.data.DespesaDAO;
+import com.simplesoftware.gerenciador_de_despesa.presenter.BuscarDespesaContract;
+import com.simplesoftware.gerenciador_de_despesa.presenter.CadastrarDespesaContract;
+import com.simplesoftware.gerenciador_de_despesa.presenter.CadastrarDespesaPresenter;
 
 import es.dmoral.toasty.Toasty;
 
 
-public class CadastrarDespesaFragment extends Fragment {
+public class CadastrarDespesaFragment extends Fragment implements CadastrarDespesaContract.MvpView {
+
+    CadastrarDespesaPresenter mPresenter;
 
     private EditText et_data, et_nome, et_preco, et_local;
     private DespesaDAO dao;
@@ -54,42 +59,46 @@ public class CadastrarDespesaFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cadastrar_despesa, container, false);
 
+    public void instanciarComponentes(View view){
         et_data = view.findViewById(R.id.et_data);
         et_nome = view.findViewById(R.id.et_nome);
         et_preco = view.findViewById(R.id.et_preco);
         et_local = view.findViewById(R.id.et_local);
         bt_salvar = view.findViewById(R.id.bt_salvar);
+    }
 
-        dao = new DespesaDAO(requireActivity().getApplicationContext());
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_cadastrar_despesa, container, false);
 
-        bt_salvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Despesa despesa = new Despesa();
-                    despesa.setData(et_data.getText().toString());
-                    despesa.setNome(et_nome.getText().toString());
-                    despesa.setPreco(Double.parseDouble(et_preco.getText().toString()));
-                    despesa.setLocal(et_local.getText().toString());
-                    long id = dao.cadastrarDespesa(despesa);
+        mPresenter = new CadastrarDespesaPresenter(this);
 
-                    Toasty.success(requireActivity().getApplicationContext(), "Despesa gerada com id: " + id, Toast.LENGTH_SHORT, true).show();
-//                    Toast.makeText(requireActivity().getApplicationContext(), "Despesa gerada com id: " + id, Toast.LENGTH_SHORT).show();
+        instanciarComponentes(view);
 
-                    et_nome.setText("");
-                    et_preco.setText("");
-                    et_nome.requestFocus();
+        bt_salvar.setOnClickListener(v -> {
+            try {
+
+                Despesa despesa = new Despesa();
+                despesa.setData(et_data.getText().toString());
+                despesa.setNome(et_nome.getText().toString());
+                despesa.setPreco(Double.parseDouble(et_preco.getText().toString()));
+                despesa.setLocal(et_local.getText().toString());
+
+                mPresenter.handleWithDataBaseInsert(requireActivity().getApplicationContext(), despesa);
+
+                Toasty.success(requireActivity().getApplicationContext(), "Despesa gerada com sucesso!", Toast.LENGTH_SHORT, true).show();
+
+                et_nome.setText("");
+                et_preco.setText("");
+                et_nome.requestFocus();
 
 
-                } catch (Exception e) {
-                    Toasty.error(requireActivity().getApplicationContext(), "Preencha todos os campos", Toast.LENGTH_SHORT, true).show();
-                    //Toast.makeText(requireActivity().getApplicationContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-                }
+            } catch (Exception e) {
+
+                Toasty.error(requireActivity().getApplicationContext(), "Preencha todos os campos.", Toast.LENGTH_SHORT, true).show();
+
             }
         });
 
