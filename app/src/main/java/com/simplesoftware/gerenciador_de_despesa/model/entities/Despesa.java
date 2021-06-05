@@ -1,4 +1,4 @@
-package com.simplesoftware.gerenciador_de_despesa.entities;
+package com.simplesoftware.gerenciador_de_despesa.model.entities;
 
 import java.io.Serializable;
 

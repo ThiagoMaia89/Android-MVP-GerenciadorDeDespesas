@@ -1,14 +1,16 @@
-package com.simplesoftware.gerenciador_de_despesa;
+package com.simplesoftware.gerenciador_de_despesa.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
+import com.simplesoftware.gerenciador_de_despesa.R;
+import com.simplesoftware.gerenciador_de_despesa.presenter.BuscarDespesaContract;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

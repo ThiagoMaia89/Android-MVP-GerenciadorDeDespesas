@@ -1,11 +1,11 @@
-package com.simplesoftware.gerenciador_de_despesa.helpers;
+package com.simplesoftware.gerenciador_de_despesa.model.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.simplesoftware.gerenciador_de_despesa.entities.Despesa;
+import com.simplesoftware.gerenciador_de_despesa.model.entities.Despesa;
 
 import java.util.ArrayList;
 
@@ -46,6 +46,7 @@ public class DespesaDAO {
 
     public void deletarDespesa(Despesa despesa){
         banco.delete("tb_despesas", "id = ?", new String[]{despesa.getId().toString()});
+
     }
 
 

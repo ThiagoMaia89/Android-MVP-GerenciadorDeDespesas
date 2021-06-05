@@ -1,10 +1,8 @@
-package com.simplesoftware.gerenciador_de_despesa.adapters;
+package com.simplesoftware.gerenciador_de_despesa.view;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +17,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.simplesoftware.gerenciador_de_despesa.BuscarDespesaFragment;
-import com.simplesoftware.gerenciador_de_despesa.MainActivity;
 import com.simplesoftware.gerenciador_de_despesa.R;
-import com.simplesoftware.gerenciador_de_despesa.entities.Despesa;
-import com.simplesoftware.gerenciador_de_despesa.helpers.DespesaDAO;
+import com.simplesoftware.gerenciador_de_despesa.model.entities.Despesa;
+import com.simplesoftware.gerenciador_de_despesa.model.data.DespesaDAO;
 
 import java.util.ArrayList;
 
@@ -71,13 +67,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        BuscarDespesaFragment frag = null;
 
                                         dao.deletarDespesa(despesa);
                                         listaDespesas.remove(position);
                                         notifyItemRemoved(position);
                                         notifyDataSetChanged();
+
                                         Toasty.success(context, "Registro excluido com sucesso!", Toast.LENGTH_SHORT).show();
+
                                     }
                                 })
                         .setNegativeButton("Não", null)

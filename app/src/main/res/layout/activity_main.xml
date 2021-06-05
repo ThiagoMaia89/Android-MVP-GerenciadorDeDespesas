@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -18,7 +18,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragContainerView"
-            android:name="com.simplesoftware.gerenciador_de_despesa.BuscarDespesaFragment"
+            android:name="com.simplesoftware.gerenciador_de_despesa.view.BuscarDespesaFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/bottom_bar"

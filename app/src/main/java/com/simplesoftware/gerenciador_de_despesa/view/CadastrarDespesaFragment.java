@@ -1,4 +1,4 @@
-package com.simplesoftware.gerenciador_de_despesa;
+package com.simplesoftware.gerenciador_de_despesa.view;
 
 import android.os.Bundle;
 
@@ -11,8 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.simplesoftware.gerenciador_de_despesa.entities.Despesa;
-import com.simplesoftware.gerenciador_de_despesa.helpers.DespesaDAO;
+import com.simplesoftware.gerenciador_de_despesa.R;
+import com.simplesoftware.gerenciador_de_despesa.model.entities.Despesa;
+import com.simplesoftware.gerenciador_de_despesa.model.data.DespesaDAO;
 
 import es.dmoral.toasty.Toasty;
 

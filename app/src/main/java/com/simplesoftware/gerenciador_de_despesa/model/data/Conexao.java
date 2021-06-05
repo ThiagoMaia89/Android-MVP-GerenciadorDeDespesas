@@ -1,4 +1,4 @@
-package com.simplesoftware.gerenciador_de_despesa.helpers;
+package com.simplesoftware.gerenciador_de_despesa.model.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
