@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,6 @@ import android.widget.Toast;
 import com.simplesoftware.gerenciador_de_despesa.R;
 import com.simplesoftware.gerenciador_de_despesa.model.entities.Despesa;
 import com.simplesoftware.gerenciador_de_despesa.model.data.DespesaDAO;
-import com.simplesoftware.gerenciador_de_despesa.presenter.BuscarDespesaContract;
 import com.simplesoftware.gerenciador_de_despesa.presenter.CadastrarDespesaContract;
 import com.simplesoftware.gerenciador_de_despesa.presenter.CadastrarDespesaPresenter;
 
@@ -26,7 +27,6 @@ public class CadastrarDespesaFragment extends Fragment implements CadastrarDespe
     CadastrarDespesaPresenter mPresenter;
 
     private EditText et_data, et_nome, et_preco, et_local;
-    private DespesaDAO dao;
     private Button bt_salvar;
 
     private static final String ARG_PARAM1 = "param1";
@@ -76,18 +76,14 @@ public class CadastrarDespesaFragment extends Fragment implements CadastrarDespe
         mPresenter = new CadastrarDespesaPresenter(this);
 
         instanciarComponentes(view);
-
+        mPresenter.putSlashOnDate(et_data);
         bt_salvar.setOnClickListener(v -> {
             try {
 
                 Despesa despesa = new Despesa();
-                despesa.setData(et_data.getText().toString());
-                despesa.setNome(et_nome.getText().toString());
-                despesa.setPreco(Double.parseDouble(et_preco.getText().toString()));
-                despesa.setLocal(et_local.getText().toString());
 
-                mPresenter.handleWithDataBaseInsert(requireActivity().getApplicationContext(), despesa);
-
+                mPresenter.createNewDespesa(despesa, et_data, et_nome, et_preco, et_local);
+                mPresenter.dataBaseInsert(requireActivity().getApplicationContext(), despesa);
                 Toasty.success(requireActivity().getApplicationContext(), "Despesa gerada com sucesso!", Toast.LENGTH_SHORT, true).show();
 
                 et_nome.setText("");

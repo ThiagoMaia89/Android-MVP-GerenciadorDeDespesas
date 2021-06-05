@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gerenciador_de_despesa</string>
+    <string name="app_name">Despesas</string>
     <string name="lancar_despesas">Cadastrar Despesa</string>
     <string name="lancamentos">Lançamentos</string>
     <string name="resumo_lancamentos">Resumo de Lançamentos</string>
